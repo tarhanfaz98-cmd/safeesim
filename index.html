@@ -1313,10 +1313,10 @@ resize();
 window.addEventListener('resize', resize);
 
 const orbs = [
-    { x: 0.2, y: 0.2, r: 500, color: '124,58,237', dx: 0.0003, dy: 0.0002, t: 0 },
-    { x: 0.8, y: 0.5, r: 600, color: '6,182,212',  dx: -0.0002, dy: 0.0003, t: 1 },
-    { x: 0.5, y: 0.8, r: 450, color: '139,92,246', dx: 0.0002, dy: -0.0003, t: 2 },
-    { x: 0.1, y: 0.7, r: 350, color: '16,185,129', dx: 0.0003, dy: 0.0001, t: 3 },
+    { x: 0.2, y: 0.2, r: 700, color: '124,58,237', dx: 0.0003, dy: 0.0002, t: 0 },
+    { x: 0.8, y: 0.4, r: 800, color: '6,182,212',  dx: -0.0002, dy: 0.0003, t: 1 },
+    { x: 0.5, y: 0.85, r: 650, color: '139,92,246', dx: 0.0002, dy: -0.0003, t: 2 },
+    { x: 0.15, y: 0.65, r: 500, color: '16,185,129', dx: 0.0003, dy: 0.0001, t: 3 },
 ];
 
 // Частицы
@@ -1343,8 +1343,8 @@ function draw() {
         const x = (Math.sin(time * o.dx * 1000 + o.t) * 0.15 + o.x) * canvas.width;
         const y = (Math.cos(time * o.dy * 1000 + o.t) * 0.15 + o.y) * canvas.height;
         const grad = ctx.createRadialGradient(x, y, 0, x, y, o.r);
-        grad.addColorStop(0, `rgba(${o.color},0.12)`);
-        grad.addColorStop(0.5, `rgba(${o.color},0.05)`);
+        grad.addColorStop(0, `rgba(${o.color},0.45)`);
+        grad.addColorStop(0.4, `rgba(${o.color},0.18)`);
         grad.addColorStop(1, `rgba(${o.color},0)`);
         ctx.beginPath();
         ctx.arc(x, y, o.r, 0, Math.PI * 2);
