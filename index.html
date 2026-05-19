@@ -1301,44 +1301,117 @@ const style = document.createElement('style');
 style.textContent = `@keyframes rippleAnim { to { transform:translate(-50%,-50%) scale(3); opacity:0; } }`;
 document.head.appendChild(style);
 
-// PARTICLES
+// STARS
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-const particles = [];
-for (let i = 0; i < 80; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5 + 0.5,
-        dx: (Math.random() - 0.5) * 0.4,
-        dy: (Math.random() - 0.5) * 0.4,
-        opacity: Math.random() * 0.4 + 0.1
-    });
-}
-
-function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(167, 139, 250, ${p.opacity})`;
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-    });
-    requestAnimationFrame(drawParticles);
-}
-drawParticles();
-
-window.addEventListener('resize', () => {
+function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-});
+}
+resize();
+window.addEventListener('resize', resize);
+
+const stars = [];
+const shootingStars = [];
+
+for (let i = 0; i < 200; i++) {
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.8 + 0.2,
+        opacity: Math.random() * 0.8 + 0.2,
+        twinkleSpeed: Math.random() * 0.02 + 0.005,
+        twinkleDir: Math.random() > 0.5 ? 1 : -1,
+        color: Math.random() > 0.8 ? '#a78bfa' : Math.random() > 0.5 ? '#22d3ee' : '#fff'
+    });
+}
+
+function addShootingStar() {
+    shootingStars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height * 0.5,
+        len: Math.random() * 150 + 80,
+        speed: Math.random() * 8 + 6,
+        opacity: 1,
+        angle: Math.PI / 4
+    });
+}
+
+setInterval(addShootingStar, 3000);
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Звёзды
+    stars.forEach(s => {
+        s.opacity += s.twinkleSpeed * s.twinkleDir;
+        if (s.opacity > 1 || s.opacity < 0.1) s.twinkleDir *= -1;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = s.color.replace(')', `, ${s.opacity})`).replace('rgb', 'rgba').replace('#fff', `rgba(255,255,255,${s.opacity})`).replace('#a78bfa', `rgba(167,139,250,${s.opacity})`).replace('#22d3ee', `rgba(34,211,238,${s.opacity})`);
+        ctx.fill();
+
+        // Блик на крупных звёздах
+        if (s.r > 1.2) {
+            ctx.beginPath();
+            ctx.moveTo(s.x - s.r * 3, s.y);
+            ctx.lineTo(s.x + s.r * 3, s.y);
+            ctx.strokeStyle = `rgba(255,255,255,${s.opacity * 0.2})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(s.x, s.y - s.r * 3);
+            ctx.lineTo(s.x, s.y + s.r * 3);
+            ctx.stroke();
+        }
+    });
+
+    // Падающие звёзды
+    for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const s = shootingStars[i];
+        const grad = ctx.createLinearGradient(
+            s.x, s.y,
+            s.x - Math.cos(s.angle) * s.len,
+            s.y - Math.sin(s.angle) * s.len
+        );
+        grad.addColorStop(0, `rgba(255,255,255,${s.opacity})`);
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(s.x - Math.cos(s.angle) * s.len, s.y - Math.sin(s.angle) * s.len);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        s.x += Math.cos(s.angle) * s.speed;
+        s.y += Math.sin(s.angle) * s.speed;
+        s.opacity -= 0.015;
+
+        if (s.opacity <= 0) shootingStars.splice(i, 1);
+    }
+
+    // Туманности
+    const nebulas = [
+        { x: canvas.width * 0.2, y: canvas.height * 0.3, r: 300, color: '124,58,237' },
+        { x: canvas.width * 0.8, y: canvas.height * 0.6, r: 250, color: '6,182,212' },
+        { x: canvas.width * 0.5, y: canvas.height * 0.8, r: 200, color: '124,58,237' },
+    ];
+
+    nebulas.forEach(n => {
+        const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r);
+        grad.addColorStop(0, `rgba(${n.color},0.06)`);
+        grad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+}
+draw();
 
 // SCROLL REVEAL
 const observer = new IntersectionObserver((entries) => {
