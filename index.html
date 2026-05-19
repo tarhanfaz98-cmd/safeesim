@@ -10,9 +10,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --purple: #7c3aed;
-            --cyan: #06b6d4;
-            --bg: #050510;
+            --primary: #f97316;
+            --secondary: #fbbf24;
+            --bg: #080604;
         }
 
         body {
@@ -35,7 +35,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(5,5,16,0.7);
+            background: rgba(8,6,4,0.7);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
@@ -43,7 +43,7 @@
         .logo {
             font-size: 22px;
             font-weight: 800;
-            background: linear-gradient(135deg, #a78bfa, #22d3ee);
+            background: linear-gradient(135deg, #fcd34d, #fbbf24);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
@@ -60,7 +60,7 @@
         nav a:hover { color: #fff; }
 
         .btn-buy {
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+            background: linear-gradient(135deg, #f97316, #fb923c);
             color: #fff;
             border: none;
             padding: 11px 26px;
@@ -70,9 +70,9 @@
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(124,58,237,0.4);
+            box-shadow: 0 0 20px rgba(249,115,22,0.4);
         }
-        .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(124,58,237,0.6); }
+        .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(249,115,22,0.6); }
 
         /* HERO */
         .hero {
@@ -94,9 +94,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(124,58,237,0.1);
-            border: 1px solid rgba(124,58,237,0.3);
-            color: #a78bfa;
+            background: rgba(249,115,22,0.1);
+            border: 1px solid rgba(249,115,22,0.3);
+            color: #fcd34d;
             padding: 8px 20px;
             border-radius: 50px;
             font-size: 13px;
@@ -115,7 +115,7 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 50%, #a78bfa 100%);
+            background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 50%, #fcd34d 100%);
             background-size: 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -146,7 +146,7 @@
         }
 
         .btn-main {
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+            background: linear-gradient(135deg, #f97316, #fb923c);
             color: #fff;
             padding: 16px 40px;
             border-radius: 50px;
@@ -154,12 +154,12 @@
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 0 40px rgba(124,58,237,0.5);
+            box-shadow: 0 0 40px rgba(249,115,22,0.5);
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 0 60px rgba(124,58,237,0.7); }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 0 60px rgba(249,115,22,0.7); }
 
         .btn-ghost {
             color: rgba(255,255,255,0.7);
@@ -195,7 +195,7 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(124,58,237,0.2);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(249,115,22,0.2);
         }
 
         .phone-notch {
@@ -211,8 +211,8 @@
         }
 
         .tg-msg {
-            background: rgba(124,58,237,0.2);
-            border: 1px solid rgba(124,58,237,0.3);
+            background: rgba(249,115,22,0.2);
+            border: 1px solid rgba(249,115,22,0.3);
             border-radius: 16px 16px 16px 4px;
             padding: 14px 16px;
             margin-bottom: 12px;
@@ -223,8 +223,8 @@
         }
 
         .tg-msg.right {
-            background: rgba(6,182,212,0.15);
-            border-color: rgba(6,182,212,0.3);
+            background: rgba(251,146,60,0.15);
+            border-color: rgba(251,146,60,0.3);
             border-radius: 16px 16px 4px 16px;
             text-align: right;
         }
@@ -319,7 +319,7 @@
         .stat-num {
             font-size: 44px;
             font-weight: 800;
-            background: linear-gradient(135deg, #a78bfa, #22d3ee);
+            background: linear-gradient(135deg, #fcd34d, #fbbf24);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1;
@@ -338,9 +338,9 @@
 
         .section-tag {
             display: inline-block;
-            background: rgba(124,58,237,0.1);
-            border: 1px solid rgba(124,58,237,0.2);
-            color: #a78bfa;
+            background: rgba(249,115,22,0.1);
+            border: 1px solid rgba(249,115,22,0.2);
+            color: #fcd34d;
             padding: 6px 16px;
             border-radius: 50px;
             font-size: 12px;
@@ -380,18 +380,18 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(124,58,237,0.05), transparent);
+            background: linear-gradient(135deg, rgba(249,115,22,0.05), transparent);
             opacity: 0;
             transition: opacity 0.4s;
         }
 
-        .step:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-4px); }
+        .step:hover { border-color: rgba(249,115,22,0.4); transform: translateY(-4px); }
         .step:hover::before { opacity: 1; }
 
         .step-number {
             font-size: 72px;
             font-weight: 900;
-            background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(6,182,212,0.3));
+            background: linear-gradient(135deg, rgba(249,115,22,0.3), rgba(251,146,60,0.3));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1;
@@ -419,7 +419,7 @@
         }
 
         .feature-card:hover {
-            border-color: rgba(6,182,212,0.3);
+            border-color: rgba(251,146,60,0.3);
             transform: translateY(-4px);
         }
 
@@ -445,7 +445,7 @@
             position: absolute;
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(6,182,212,0.1), transparent);
+            background: radial-gradient(circle, rgba(251,146,60,0.1), transparent);
             top: -50px;
             right: -50px;
             pointer-events: none;
@@ -464,7 +464,7 @@
             max-width: 520px;
             margin: 0 auto;
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(124,58,237,0.3);
+            border: 1px solid rgba(249,115,22,0.3);
             border-radius: 32px;
             padding: 56px;
             text-align: center;
@@ -477,7 +477,7 @@
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #7c3aed, #06b6d4);
+            background: linear-gradient(90deg, #f97316, #fb923c);
         }
 
         .pricing-card::after {
@@ -485,7 +485,7 @@
             position: absolute;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(124,58,237,0.15), transparent);
+            background: radial-gradient(circle, rgba(249,115,22,0.15), transparent);
             top: -100px;
             left: 50%;
             transform: translateX(-50%);
@@ -494,7 +494,7 @@
 
         .pricing-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+            background: linear-gradient(135deg, #f97316, #fb923c);
             color: #fff;
             padding: 8px 20px;
             border-radius: 50px;
@@ -532,7 +532,7 @@
         .check {
             width: 24px;
             height: 24px;
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+            background: linear-gradient(135deg, #f97316, #fb923c);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -543,7 +543,7 @@
 
         .btn-pricing {
             display: block;
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+            background: linear-gradient(135deg, #f97316, #fb923c);
             color: #fff;
             padding: 18px;
             border-radius: 16px;
@@ -551,10 +551,10 @@
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 0 40px rgba(124,58,237,0.4);
+            box-shadow: 0 0 40px rgba(249,115,22,0.4);
         }
 
-        .btn-pricing:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(124,58,237,0.6); }
+        .btn-pricing:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(249,115,22,0.6); }
 
         .monthly-note {
             margin-top: 24px;
@@ -583,7 +583,7 @@
             transition: color 0.2s;
         }
 
-        .faq-q:hover { color: #a78bfa; }
+        .faq-q:hover { color: #fcd34d; }
 
         .faq-icon {
             width: 32px;
@@ -594,14 +594,14 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            color: #a78bfa;
+            color: #fcd34d;
             transition: all 0.3s;
             flex-shrink: 0;
         }
 
         .faq-item.open .faq-icon {
-            background: rgba(124,58,237,0.2);
-            border-color: rgba(124,58,237,0.4);
+            background: rgba(249,115,22,0.2);
+            border-color: rgba(249,115,22,0.4);
             transform: rotate(45deg);
         }
 
@@ -629,8 +629,8 @@
         .cta-card {
             max-width: 900px;
             margin: 0 auto;
-            background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.1));
-            border: 1px solid rgba(124,58,237,0.25);
+            background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(251,146,60,0.1));
+            border: 1px solid rgba(249,115,22,0.25);
             border-radius: 32px;
             padding: 80px;
             text-align: center;
@@ -643,7 +643,7 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(124,58,237,0.2), transparent);
+            background: radial-gradient(circle, rgba(249,115,22,0.2), transparent);
             top: -100px;
             left: -100px;
         }
@@ -727,8 +727,8 @@
         .popup-overlay.show { display: flex; }
 
         .popup {
-            background: #0f0f1a;
-            border: 1px solid rgba(124,58,237,0.3);
+            background: #0c0906;
+            border: 1px solid rgba(249,115,22,0.3);
             border-radius: 28px;
             padding: 48px;
             max-width: 480px;
@@ -788,24 +788,24 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.05));
+            background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(251,146,60,0.05));
             opacity: 0;
             transition: opacity 0.3s;
         }
 
         .tariff-card:hover {
             transform: translateY(-8px) scale(1.03);
-            border-color: rgba(124,58,237,0.5);
-            box-shadow: 0 20px 60px rgba(124,58,237,0.2);
+            border-color: rgba(249,115,22,0.5);
+            box-shadow: 0 20px 60px rgba(249,115,22,0.2);
         }
 
         .tariff-card:hover::before { opacity: 1; }
 
         .tariff-card.selected {
-            border-color: #7c3aed;
-            background: rgba(124,58,237,0.1);
+            border-color: #f97316;
+            background: rgba(249,115,22,0.1);
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 0 60px rgba(124,58,237,0.4);
+            box-shadow: 0 0 60px rgba(249,115,22,0.4);
         }
 
         .tariff-card.popular {
@@ -848,7 +848,7 @@
         .tariff-price {
             font-size: 24px;
             font-weight: 800;
-            background: linear-gradient(135deg, #a78bfa, #22d3ee);
+            background: linear-gradient(135deg, #fcd34d, #fbbf24);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
@@ -886,9 +886,9 @@
             bottom: 0; left: 0; right: 0;
             z-index: 999;
             padding: 16px 24px;
-            background: rgba(5,5,16,0.95);
+            background: rgba(8,6,4,0.95);
             backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(124,58,237,0.3);
+            border-top: 1px solid rgba(249,115,22,0.3);
             animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
@@ -912,13 +912,13 @@
         .selected-price {
             font-size: 24px;
             font-weight: 800;
-            background: linear-gradient(135deg, #a78bfa, #22d3ee);
+            background: linear-gradient(135deg, #fcd34d, #fbbf24);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .btn-order {
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+            background: linear-gradient(135deg, #f97316, #fb923c);
             color: #fff;
             padding: 14px 32px;
             border-radius: 50px;
@@ -927,10 +927,10 @@
             text-decoration: none;
             white-space: nowrap;
             transition: all 0.3s;
-            box-shadow: 0 0 30px rgba(124,58,237,0.4);
+            box-shadow: 0 0 30px rgba(249,115,22,0.4);
         }
 
-        .btn-order:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(124,58,237,0.6); }
+        .btn-order:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(249,115,22,0.6); }
 
         @media (max-width: 768px) {
             header { padding: 16px 20px; }
@@ -991,7 +991,7 @@
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
                         <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:12px;color:rgba(255,255,255,0.4);">
-                            <div style="width:28px;height:28px;background:linear-gradient(135deg,#7c3aed,#06b6d4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;">🔐</div>
+                            <div style="width:28px;height:28px;background:linear-gradient(135deg,#f97316,#fb923c);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;">🔐</div>
                             SafeSIM Bot
                         </div>
                         <div class="tg-msg">Добро пожаловать! Нажмите кнопку ниже чтобы получить eSIM 🚀</div>
@@ -1126,9 +1126,10 @@
     <h2 class="reveal" style="font-size:52px;font-weight:800;letter-spacing:-2px;margin-bottom:16px;">Выберите тариф</h2>
     <p class="reveal" style="color:rgba(255,255,255,0.4);font-size:16px;margin-bottom:48px;">Все тарифы — безлимитный интернет для России 🇷🇺</p>
 
-    <div class="tariff-grid reveal">
+    <div class="tariff-grid reveal" id="tariffGrid">
 
-        <div class="tariff-card" onclick="window.open('https://t.me/safeesim_Bot?start=buy_1d','_blank')" data-name="1 день" data-price="350">
+        <div class="tariff-card" onclick="selectTariff(this,'1d')" data-id="1d" data-name="1 день" data-price="350" data-color="#f97316"
+             data-tags='["Весь день","Безлимит","Без VPN","Все сервисы","eSIM"]'>
             <div class="tariff-duration">1 день</div>
             <div class="tariff-price">350 ₽</div>
             <div class="tariff-badge">Безлимит</div>
@@ -1138,7 +1139,8 @@
             </div>
         </div>
 
-        <div class="tariff-card" onclick="window.open('https://t.me/safeesim_Bot?start=buy_3d','_blank')" data-name="3 дня" data-price="950">
+        <div class="tariff-card" onclick="selectTariff(this,'3d')" data-id="3d" data-name="3 дня" data-price="950" data-color="#eab308"
+             data-tags='["3 дня","Безлимит","Без VPN","YouTube","Instagram"]'>
             <div class="tariff-duration">3 дня</div>
             <div class="tariff-price">950 ₽</div>
             <div class="tariff-badge">Безлимит</div>
@@ -1148,7 +1150,8 @@
             </div>
         </div>
 
-        <div class="tariff-card" onclick="window.open('https://t.me/safeesim_Bot?start=buy_7d','_blank')" data-name="7 дней" data-price="2100">
+        <div class="tariff-card" onclick="selectTariff(this,'7d')" data-id="7d" data-name="7 дней" data-price="2100" data-color="#ef4444"
+             data-tags='["Неделя","Безлимит","Без VPN","Быстро","eSIM"]'>
             <div class="tariff-duration">7 дней</div>
             <div class="tariff-price">2 100 ₽</div>
             <div class="tariff-badge">Безлимит</div>
@@ -1158,7 +1161,8 @@
             </div>
         </div>
 
-        <div class="tariff-card popular" onclick="window.open('https://t.me/safeesim_Bot?start=buy_15d','_blank')" data-name="15 дней" data-price="4400">
+        <div class="tariff-card popular" onclick="selectTariff(this,'15d')" data-id="15d" data-name="15 дней" data-price="4400" data-color="#a855f7"
+             data-tags='["🔥 Хит","Безлимит","Без VPN","Выгодно","eSIM"]'>
             <div class="popular-label">🔥 Популярный</div>
             <div class="tariff-duration">15 дней</div>
             <div class="tariff-price">4 400 ₽</div>
@@ -1169,7 +1173,8 @@
             </div>
         </div>
 
-        <div class="tariff-card best" onclick="window.open('https://t.me/safeesim_Bot?start=buy_30d','_blank')" data-name="30 дней" data-price="8200">
+        <div class="tariff-card best" onclick="selectTariff(this,'30d')" data-id="30d" data-name="30 дней" data-price="8200" data-color="#22c55e"
+             data-tags='["⭐ Лучший","Месяц","Безлимит","Без VPN","eSIM"]'>
             <div class="best-label">⭐ Выгоднее всего</div>
             <div class="tariff-duration">30 дней</div>
             <div class="tariff-price">8 200 ₽</div>
@@ -1267,41 +1272,120 @@ function openTelegram() {
     window.open(`https://t.me/safeesim_Bot?start=buy_${currentTariffId}`, '_blank');
 }
 
-function selectTariff(card, id, price) {
+// Inject styles
+const dynStyle = document.createElement('style');
+dynStyle.textContent = `
+@keyframes rippleAnim { to { transform:translate(-50%,-50%) scale(3); opacity:0; } }
+@keyframes spinOnce { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+@keyframes orbitTag {
+    0%   { opacity:0; transform: translate(-50%,-50%) scale(0.4); }
+    20%  { opacity:1; transform: translate(-50%,-50%) scale(1); }
+    80%  { opacity:1; transform: translate(-50%,-50%) scale(1); }
+    100% { opacity:0; transform: translate(-50%,-50%) scale(0.4); }
+}
+.orbit-tag {
+    position: absolute;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    pointer-events: none;
+    z-index: 100;
+    white-space: nowrap;
+    animation: orbitTag 1.4s ease forwards;
+    border: 1px solid currentColor;
+    backdrop-filter: blur(8px);
+}
+`;
+document.head.appendChild(dynStyle);
+
+function spawnOrbitTags(card) {
+    const tags = JSON.parse(card.dataset.tags || '[]');
+    const color = card.dataset.color || '#f97316';
+    const rect = card.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2 + window.scrollY;
+
+    // Remove old tags
+    document.querySelectorAll('.orbit-tag').forEach(t => t.remove());
+
+    tags.forEach((text, i) => {
+        const angle = (i / tags.length) * 2 * Math.PI - Math.PI / 2;
+        const radius = 110 + Math.random() * 30;
+        const tx = cx + Math.cos(angle) * radius;
+        const ty = cy + Math.sin(angle) * radius;
+
+        const tag = document.createElement('div');
+        tag.className = 'orbit-tag';
+        tag.textContent = text;
+        tag.style.cssText = `
+            left: ${tx}px;
+            top: ${ty}px;
+            color: ${color};
+            background: ${color}18;
+            animation-delay: ${i * 0.08}s;
+        `;
+        document.body.appendChild(tag);
+        setTimeout(() => tag.remove(), 1400 + i * 80);
+    });
+}
+
+function selectTariff(card, id) {
     currentTariffId = id;
-    document.querySelectorAll('.tariff-card').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.tariff-card').forEach(c => {
+        c.classList.remove('selected');
+        c.style.transform = '';
+        c.style.perspective = '';
+    });
     card.classList.add('selected');
 
     const name = card.dataset.name;
     const priceVal = card.dataset.price;
+    const color = card.dataset.color || '#f97316';
+
+    // Spin animation
+    card.style.animation = 'none';
+    card.offsetHeight; // reflow
+    card.style.animation = 'spinOnce 0.5s ease';
+    setTimeout(() => { card.style.animation = ''; }, 500);
+
+    // Update border/glow color
+    card.style.borderColor = color;
+    card.style.boxShadow = `0 0 60px ${color}44, 0 20px 60px ${color}22`;
 
     document.getElementById('selectedName').textContent = name;
     document.getElementById('selectedPrice').textContent = parseInt(priceVal).toLocaleString('ru') + ' ₽';
 
     const btn = document.getElementById('orderBtn');
     btn.href = `https://t.me/safeesim_Bot?start=buy_${id}`;
+    btn.style.background = `linear-gradient(135deg, ${color}, ${color}aa)`;
+    btn.style.boxShadow = `0 0 30px ${color}55`;
 
-    const sel = document.getElementById('selectedTariff');
-    sel.style.display = 'block';
+    document.getElementById('selectedTariff').style.display = 'block';
+    document.getElementById('selectedTariff').style.borderTopColor = color;
+    document.getElementById('selectedPrice').style.backgroundImage = `linear-gradient(135deg, ${color}, ${color}cc)`;
 
-    // Ripple анимация
+    // Change background color
+    if (window.setBgTariff) window.setBgTariff(id);
+
+    // Ripple
     const ripple = document.createElement('div');
     ripple.style.cssText = `
         position:absolute;width:200px;height:200px;
-        background:radial-gradient(circle,rgba(124,58,237,0.4),transparent);
+        background:radial-gradient(circle,${color}66,transparent);
         border-radius:50%;top:50%;left:50%;
         transform:translate(-50%,-50%) scale(0);
         animation:rippleAnim 0.6s ease forwards;pointer-events:none;
     `;
+    card.style.position = 'relative';
     card.appendChild(ripple);
     setTimeout(() => ripple.remove(), 600);
+
+    // Orbit tags
+    spawnOrbitTags(card);
 }
 
-const style = document.createElement('style');
-style.textContent = `@keyframes rippleAnim { to { transform:translate(-50%,-50%) scale(3); opacity:0; } }`;
-document.head.appendChild(style);
-
-// GRADIENT ORBS
+// CINEMATIC BACKGROUND
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
@@ -1312,59 +1396,75 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 
-const orbs = [
-    { x: 0.2, y: 0.2, r: 700, color: '124,58,237', dx: 0.0003, dy: 0.0002, t: 0 },
-    { x: 0.8, y: 0.4, r: 800, color: '6,182,212',  dx: -0.0002, dy: 0.0003, t: 1 },
-    { x: 0.5, y: 0.85, r: 650, color: '139,92,246', dx: 0.0002, dy: -0.0003, t: 2 },
-    { x: 0.15, y: 0.65, r: 500, color: '16,185,129', dx: 0.0003, dy: 0.0001, t: 3 },
-];
-
-// Частицы
-const particles = [];
-for (let i = 0; i < 60; i++) {
-    particles.push({
-        x: Math.random(),
-        y: Math.random(),
-        r: Math.random() * 1.5 + 0.3,
-        opacity: Math.random() * 0.5 + 0.1,
-        dx: (Math.random() - 0.5) * 0.0001,
-        dy: (Math.random() - 0.5) * 0.0001,
-    });
-}
-
 let time = 0;
+let bgColor = { r: 249, g: 115, b: 22 }; // default orange
+let targetBgColor = { r: 249, g: 115, b: 22 };
+
+const TARIFF_COLORS = {
+    '1d':  { r: 249, g: 115, b: 22  }, // orange
+    '3d':  { r: 234, g: 179, b: 8   }, // yellow
+    '7d':  { r: 239, g: 68,  b: 68  }, // red
+    '15d': { r: 168, g: 85,  b: 247 }, // purple
+    '30d': { r: 34,  g: 197, b: 94  }, // green
+};
+
+window.setBgTariff = function(id) {
+    if (TARIFF_COLORS[id]) targetBgColor = { ...TARIFF_COLORS[id] };
+};
+
+function lerp(a, b, t) { return a + (b - a) * t; }
 
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    time += 0.005;
+    const w = canvas.width, h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    time += 0.004;
 
-    // Шары
-    orbs.forEach(o => {
-        const x = (Math.sin(time * o.dx * 1000 + o.t) * 0.15 + o.x) * canvas.width;
-        const y = (Math.cos(time * o.dy * 1000 + o.t) * 0.15 + o.y) * canvas.height;
-        const grad = ctx.createRadialGradient(x, y, 0, x, y, o.r);
-        grad.addColorStop(0, `rgba(${o.color},0.45)`);
-        grad.addColorStop(0.4, `rgba(${o.color},0.18)`);
-        grad.addColorStop(1, `rgba(${o.color},0)`);
-        ctx.beginPath();
-        ctx.arc(x, y, o.r, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-    });
+    bgColor.r = lerp(bgColor.r, targetBgColor.r, 0.03);
+    bgColor.g = lerp(bgColor.g, targetBgColor.g, 0.03);
+    bgColor.b = lerp(bgColor.b, targetBgColor.b, 0.03);
 
-    // Частицы
-    particles.forEach(p => {
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0) p.x = 1;
-        if (p.x > 1) p.x = 0;
-        if (p.y < 0) p.y = 1;
-        if (p.y > 1) p.y = 0;
+    const { r, g, b } = bgColor;
+
+    // Spotlight top-right (main)
+    const sx = w * (0.7 + Math.sin(time * 0.25) * 0.06);
+    const sy = -h * 0.1;
+    const g1 = ctx.createRadialGradient(sx, sy, 0, sx, sy, h * 1.1);
+    g1.addColorStop(0,   `rgba(${r},${g},${b},0.35)`);
+    g1.addColorStop(0.35,`rgba(${r},${g},${b},0.12)`);
+    g1.addColorStop(0.7, `rgba(${r},${g},${b},0.03)`);
+    g1.addColorStop(1,   `rgba(0,0,0,0)`);
+    ctx.fillStyle = g1;
+    ctx.fillRect(0, 0, w, h);
+
+    // Warm glow center
+    const cx = w * 0.5, cy = h * 0.4;
+    const g2 = ctx.createRadialGradient(cx, cy, 0, cx, cy, w * 0.55);
+    g2.addColorStop(0,   `rgba(${r},${g},${b},0.08)`);
+    g2.addColorStop(0.5, `rgba(${r},${g},${b},0.03)`);
+    g2.addColorStop(1,   `rgba(0,0,0,0)`);
+    ctx.fillStyle = g2;
+    ctx.fillRect(0, 0, w, h);
+
+    // Accent bottom-left
+    const bx = w * (0.12 + Math.cos(time * 0.18) * 0.04);
+    const by = h * (0.88 + Math.sin(time * 0.22) * 0.04);
+    const g3 = ctx.createRadialGradient(bx, by, 0, bx, by, w * 0.38);
+    g3.addColorStop(0,   `rgba(${r},${Math.max(0,g-40)},${Math.max(0,b-60)},0.2)`);
+    g3.addColorStop(0.5, `rgba(${r},${g},${b},0.05)`);
+    g3.addColorStop(1,   `rgba(0,0,0,0)`);
+    ctx.fillStyle = g3;
+    ctx.fillRect(0, 0, w, h);
+
+    // Fine grain particles
+    for (let i = 0; i < 30; i++) {
+        const px = Math.random() * w;
+        const py = Math.random() * h;
+        const alpha = Math.random() * 0.12;
         ctx.beginPath();
-        ctx.arc(p.x * canvas.width, p.y * canvas.height, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(167,139,250,${p.opacity})`;
+        ctx.arc(px, py, Math.random() * 1.2 + 0.2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
         ctx.fill();
-    });
+    }
 
     requestAnimationFrame(draw);
 }
