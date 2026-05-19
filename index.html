@@ -1301,7 +1301,7 @@ const style = document.createElement('style');
 style.textContent = `@keyframes rippleAnim { to { transform:translate(-50%,-50%) scale(3); opacity:0; } }`;
 document.head.appendChild(style);
 
-// STARS
+// GRADIENT ORBS
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
@@ -1312,100 +1312,57 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 
-const stars = [];
-const shootingStars = [];
+const orbs = [
+    { x: 0.2, y: 0.2, r: 500, color: '124,58,237', dx: 0.0003, dy: 0.0002, t: 0 },
+    { x: 0.8, y: 0.5, r: 600, color: '6,182,212',  dx: -0.0002, dy: 0.0003, t: 1 },
+    { x: 0.5, y: 0.8, r: 450, color: '139,92,246', dx: 0.0002, dy: -0.0003, t: 2 },
+    { x: 0.1, y: 0.7, r: 350, color: '16,185,129', dx: 0.0003, dy: 0.0001, t: 3 },
+];
 
-for (let i = 0; i < 200; i++) {
-    stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.8 + 0.2,
-        opacity: Math.random() * 0.8 + 0.2,
-        twinkleSpeed: Math.random() * 0.02 + 0.005,
-        twinkleDir: Math.random() > 0.5 ? 1 : -1,
-        color: Math.random() > 0.8 ? '#a78bfa' : Math.random() > 0.5 ? '#22d3ee' : '#fff'
+// Частицы
+const particles = [];
+for (let i = 0; i < 60; i++) {
+    particles.push({
+        x: Math.random(),
+        y: Math.random(),
+        r: Math.random() * 1.5 + 0.3,
+        opacity: Math.random() * 0.5 + 0.1,
+        dx: (Math.random() - 0.5) * 0.0001,
+        dy: (Math.random() - 0.5) * 0.0001,
     });
 }
 
-function addShootingStar() {
-    shootingStars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height * 0.5,
-        len: Math.random() * 150 + 80,
-        speed: Math.random() * 8 + 6,
-        opacity: 1,
-        angle: Math.PI / 4
-    });
-}
-
-setInterval(addShootingStar, 3000);
+let time = 0;
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    time += 0.005;
 
-    // Звёзды
-    stars.forEach(s => {
-        s.opacity += s.twinkleSpeed * s.twinkleDir;
-        if (s.opacity > 1 || s.opacity < 0.1) s.twinkleDir *= -1;
-
+    // Шары
+    orbs.forEach(o => {
+        const x = (Math.sin(time * o.dx * 1000 + o.t) * 0.15 + o.x) * canvas.width;
+        const y = (Math.cos(time * o.dy * 1000 + o.t) * 0.15 + o.y) * canvas.height;
+        const grad = ctx.createRadialGradient(x, y, 0, x, y, o.r);
+        grad.addColorStop(0, `rgba(${o.color},0.12)`);
+        grad.addColorStop(0.5, `rgba(${o.color},0.05)`);
+        grad.addColorStop(1, `rgba(${o.color},0)`);
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = s.color.replace(')', `, ${s.opacity})`).replace('rgb', 'rgba').replace('#fff', `rgba(255,255,255,${s.opacity})`).replace('#a78bfa', `rgba(167,139,250,${s.opacity})`).replace('#22d3ee', `rgba(34,211,238,${s.opacity})`);
+        ctx.arc(x, y, o.r, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
         ctx.fill();
-
-        // Блик на крупных звёздах
-        if (s.r > 1.2) {
-            ctx.beginPath();
-            ctx.moveTo(s.x - s.r * 3, s.y);
-            ctx.lineTo(s.x + s.r * 3, s.y);
-            ctx.strokeStyle = `rgba(255,255,255,${s.opacity * 0.2})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(s.x, s.y - s.r * 3);
-            ctx.lineTo(s.x, s.y + s.r * 3);
-            ctx.stroke();
-        }
     });
 
-    // Падающие звёзды
-    for (let i = shootingStars.length - 1; i >= 0; i--) {
-        const s = shootingStars[i];
-        const grad = ctx.createLinearGradient(
-            s.x, s.y,
-            s.x - Math.cos(s.angle) * s.len,
-            s.y - Math.sin(s.angle) * s.len
-        );
-        grad.addColorStop(0, `rgba(255,255,255,${s.opacity})`);
-        grad.addColorStop(1, 'rgba(255,255,255,0)');
+    // Частицы
+    particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0) p.x = 1;
+        if (p.x > 1) p.x = 0;
+        if (p.y < 0) p.y = 1;
+        if (p.y > 1) p.y = 0;
         ctx.beginPath();
-        ctx.moveTo(s.x, s.y);
-        ctx.lineTo(s.x - Math.cos(s.angle) * s.len, s.y - Math.sin(s.angle) * s.len);
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        s.x += Math.cos(s.angle) * s.speed;
-        s.y += Math.sin(s.angle) * s.speed;
-        s.opacity -= 0.015;
-
-        if (s.opacity <= 0) shootingStars.splice(i, 1);
-    }
-
-    // Туманности
-    const nebulas = [
-        { x: canvas.width * 0.2, y: canvas.height * 0.3, r: 300, color: '124,58,237' },
-        { x: canvas.width * 0.8, y: canvas.height * 0.6, r: 250, color: '6,182,212' },
-        { x: canvas.width * 0.5, y: canvas.height * 0.8, r: 200, color: '124,58,237' },
-    ];
-
-    nebulas.forEach(n => {
-        const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r);
-        grad.addColorStop(0, `rgba(${n.color},0.06)`);
-        grad.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
+        ctx.arc(p.x * canvas.width, p.y * canvas.height, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(167,139,250,${p.opacity})`;
         ctx.fill();
     });
 
