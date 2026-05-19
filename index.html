@@ -1191,7 +1191,7 @@
                 <span class="selected-name" id="selectedName"></span>
                 <span class="selected-price" id="selectedPrice"></span>
             </div>
-            <a href="#" class="btn-order" id="orderBtn" target="_blank">Купить в Telegram →</a>
+            <button class="btn-order" id="orderBtn" onclick="openTelegram()">Купить в Telegram →</button>
         </div>
     </div>
 
@@ -1261,7 +1261,14 @@
 
 <script>
 // TARIFF SELECTION
+let currentTariffId = '';
+
+function openTelegram() {
+    window.open(`https://t.me/safeesim_Bot?start=buy_${currentTariffId}`, '_blank');
+}
+
 function selectTariff(card, id, price) {
+    currentTariffId = id;
     document.querySelectorAll('.tariff-card').forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
 
